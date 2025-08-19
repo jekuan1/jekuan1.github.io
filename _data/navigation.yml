@@ -15,8 +15,8 @@ main:
     url: /cv/
 
   # Uncomment and modify the following sections if you want to add them later
-  # - title: "Portfolio"
-  #   url: /portfolio/
+  - title: "Portfolio"
+    url: /portfolio/
 
   # - title: "Blog Posts"
   #   url: /year-archive/
