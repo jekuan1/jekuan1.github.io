@@ -7,6 +7,10 @@ on:
       - '_talks/**'
       - 'talkmap.ipynb'
 
+permissions:
+  contents: write   # allow pushing changes back to the repo
+  pages: write      # allow writing to GitHub Pages if needed
+
 jobs:
   build:
     runs-on: ubuntu-latest
