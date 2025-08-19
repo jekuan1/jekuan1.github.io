@@ -9,55 +9,87 @@ redirect_from:
 
 {% include base_path %}
 
-Education
-======
-* Master of Engineering, University of California Berkeley, 2026 (Expected)
-* B.S. in Mechanical Engineering, University of Illinois Urbana-Champaign
+# Jonas Ekuan
+**Mechanical Engineering Graduate Student**  
+University of California, Berkeley  
+jekuan@berkeley.edu | [LinkedIn](https://linkedin.com/in/jonas-ekuan) | [GitHub](https://github.com/jekuan1)
 
-Work experience
+## Education
 ======
-* Spring 2024: Academic Pages Collaborator
-  * GitHub University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
+* **Master of Engineering, Mechanical Engineering** (Expected 2026)
+  * University of California, Berkeley
+  * GPA: [Your GPA]
+  * Relevant Coursework: [List key courses]
 
-* Fall 2015: Research Assistant
-  * GitHub University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
+* **Bachelor of Science, Mechanical Engineering** (Year)
+  * University of Illinois Urbana-Champaign
+  * GPA: [Your GPA]
+  * Relevant Coursework: [List key courses]
 
-* Summer 2015: Research Assistant
-  * GitHub University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
-  
-Skills
+## Work Experience
 ======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+* **[Position Title]** (Time Period)
+  * **Company/Organization Name**
+  * Key responsibilities and achievements:
+    - Achievement 1
+    - Achievement 2
+    - Achievement 3
 
-Publications
+* **[Position Title]** (Time Period)
+  * **Company/Organization Name**
+  * Key responsibilities and achievements:
+    - Achievement 1
+    - Achievement 2
+    - Achievement 3
+
+## Research Experience
 ======
-  <ul>{% for post in site.publications reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Talks
+* **[Research Position]** (Time Period)
+  * **Institution/Lab Name**
+  * **Advisor**: [Advisor Name]
+  * Research focus and key contributions:
+    - Contribution 1
+    - Contribution 2
+    - Contribution 3
+
+## Technical Skills
 ======
-  <ul>{% for post in site.talks reversed %}
-    {% include archive-single-talk-cv.html  %}
-  {% endfor %}</ul>
-  
-Teaching
+* **Programming Languages**: [List languages]
+* **CAD Software**: [List CAD tools]
+* **Analysis Tools**: [List analysis software]
+* **Manufacturing**: [List manufacturing processes]
+* **Other Skills**: [List other relevant skills]
+
+## Projects
 ======
-  <ul>{% for post in site.teaching reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Service and leadership
+* **[Project Name]** (Time Period)
+  * Brief description of the project and your role
+  * Technologies used and outcomes achieved
+
+* **[Project Name]** (Time Period)
+  * Brief description of the project and your role
+  * Technologies used and outcomes achieved
+
+## Publications
 ======
-* Currently signed in to 43 different slack teams
+* [Publication 1] (if any)
+* [Publication 2] (if any)
+
+## Awards & Honors
+======
+* [Award 1] (Year)
+* [Award 2] (Year)
+
+## Professional Memberships
+======
+* [Membership 1]
+* [Membership 2]
+
+## Languages
+======
+* English (Native)
+* [Other languages if applicable]
+
+---
+
+*Last updated: [Current Date]*
