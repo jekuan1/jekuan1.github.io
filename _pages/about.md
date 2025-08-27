@@ -6,7 +6,7 @@ redirect_from:
 ---
 # About Me
 
-I'm currently pursuing my Master of Engineering degree at UC Berkeley, building on my strong foundation from the University of Illinois Urbana-Champaign where I earned my Bachelor of Science in Mechanical Engineering.
+Hello, welcome to my portfolio website. I'm currently pursuing my Master of Engineering degree at UC Berkeley, building on my strong foundation from the University of Illinois Urbana-Champaign where I earned my Bachelor of Science in Mechanical Engineering.
 
 My academic journey has been driven by a curiosity for how things work and a desire to create meaningful solutions to complex engineering challenges. I specialize in mechanical systems, product design, and engineering analysis.
 
