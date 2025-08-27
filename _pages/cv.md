@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: "CV"
+title: ""
 permalink: /cv/
 author_profile: true
 redirect_from:
@@ -8,88 +8,43 @@ redirect_from:
 ---
 
 {% include base_path %}
+# Education
+**University of California, Berkeley** (Expected Graduation: May 2026)
+* Master of Engineering, Mechanical Engineering
+* Relevant Coursework: Polymer Engineering, Design with Morphing Materials and Mechanisms  
 
-# Jonas Ekuan
-**Mechanical Engineering Graduate Student**  
-University of California, Berkeley  
-jekuan@berkeley.edu | [LinkedIn](https://linkedin.com/in/jonas-ekuan) | [GitHub](https://github.com/jekuan1)
+**University of Illinois Urbana-Champaign** (May 2025)
+* Bachelor of Science, Mechanical Engineering
+* Minors in Business and Computer Science
+* Relevant Coursework: Mechanical Design, Machine Design, Design for Manufacturability, Engineering Materials, Heat Transfer, Fluid Mechanics, Thermodynamics, Heat Pumps, Signal Processing, Vibrations, Databases, Applied Machine Learning, Data Structures & Algorithms
 
-## Education
-======
-* **Master of Engineering, Mechanical Engineering** (Expected 2026)
-  * University of California, Berkeley
-  * GPA: [Your GPA]
-  * Relevant Coursework: [List key courses]
+# Work Experience
+**Mondelēz International** (Feb 2025 – Jul 2025)\
+**R&D Intern**
 
-* **Bachelor of Science, Mechanical Engineering** (Year)
-  * University of Illinois Urbana-Champaign
-  * GPA: [Your GPA]
-  * Relevant Coursework: [List key courses]
+**University of Illinois Combustion Research** (Sep 2024 – Apr 2025)\
+**Undergraduate Research Assistant**
+* Professor Nick Glumac's research team.
+* Researched combustion
 
-## Work Experience
-======
-* **[Position Title]** (Time Period)
-  * **Company/Organization Name**
-  * Key responsibilities and achievements:
-    - Achievement 1
-    - Achievement 2
-    - Achievement 3
+**Taiwan Semiconductor Manufacturing Company (TSMC)** (May 2024 – Aug 2024)\
+**Mechanical Engineering Intern**
 
-* **[Position Title]** (Time Period)
-  * **Company/Organization Name**
-  * Key responsibilities and achievements:
-    - Achievement 1
-    - Achievement 2
-    - Achievement 3
+**Align Technology** (May 2022 – Aug 2022)\
+**R&D Intern**
 
-## Research Experience
-======
-* **[Research Position]** (Time Period)
-  * **Institution/Lab Name**
-  * **Advisor**: [Advisor Name]
-  * Research focus and key contributions:
-    - Contribution 1
-    - Contribution 2
-    - Contribution 3
+# Technical Skills
+**Programming Languages**: Python, C++, MATLAB, SQL\
+**CAD Software**: Solidworks, Fusion 360
+**Data Visualization Libraries**: Numpy, Pandas, Matplotlib, Seaborn
+**Manufacturing**: 3D Printing, CNC Milling, Laser Cutting, Lathe Operation
+**Other Tools**: Git, Microsoft Office Suite
 
-## Technical Skills
-======
-* **Programming Languages**: [List languages]
-* **CAD Software**: [List CAD tools]
-* **Analysis Tools**: [List analysis software]
-* **Manufacturing**: [List manufacturing processes]
-* **Other Skills**: [List other relevant skills]
+# Hobbies & Interests
+**Outdoor Adventure Club** (Sep 2021 – May 2025)\
+Executive Board Member, President 2023-2024
 
-## Projects
-======
-* **[Project Name]** (Time Period)
-  * Brief description of the project and your role
-  * Technologies used and outcomes achieved
-
-* **[Project Name]** (Time Period)
-  * Brief description of the project and your role
-  * Technologies used and outcomes achieved
-
-## Publications
-======
-* [Publication 1] (if any)
-* [Publication 2] (if any)
-
-## Awards & Honors
-======
-* [Award 1] (Year)
-* [Award 2] (Year)
-
-## Professional Memberships
-======
-* [Membership 1]
-* [Membership 2]
-
-## Languages
-======
-* English (Native)
-* [Other languages if applicable]
-
----
+*Interests*
+Nuclear Reactors, Economics, Maritime Transport, Cooking, Football (NFL)
 
 *Last updated: [Current Date]*
