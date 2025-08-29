@@ -3,7 +3,7 @@ layout: archive
 title: ""
 # currently not using cv-json. May change in the future
 permalink: /cv/
-author_profile: false
+author_profile: true
 redirect_from:
   - /resume
 ---

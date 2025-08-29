@@ -3,7 +3,6 @@
     "name": "Jonas Ekuan",
     "email": "jekuan@berkeley.edu",
     "phone": "Phone Number Available Upon Request",
-    "summary": "Masters Student in Mechanical Engineering @ UC Berkleey",
     "location": {
       "address": "",
       "postalCode": "",
@@ -132,11 +131,9 @@
   "interests": [],
   "portfolio": [
     {
-      "name": "Portfolio item number 1",
-      "category": "portfolio",
-      "date": "",
-      "url": "",
-      "description": "Short description of portfolio item number 1<br/><img src='/images/500x300.png'>"
+      "name": "Liquid Cooling Test Bench for Collins Aerospace",
+      "url": "/portfolio/collins-aerospace",
+      "description": "<img src='/images/immersion-cooling-project/cad-assembly.png'>Designed and built a test bench for a  power module and oil-based coolant to study the effects of immersion cooling, as part of a Senior Design Project. The project involved developing procedures, performing tests, and providing a series of recommendations in a technical report."
     }
   ]
 }
