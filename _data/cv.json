@@ -128,49 +128,6 @@
       ]
     }
   ],
-  "skills": [
-    {
-      "name": "Programming Languages",
-      "keywords": [
-        "Python",
-        "C++",
-        "MATLAB",
-        "SQL"
-      ]
-    },
-    {
-      "name": "CAD Software",
-      "keywords": [
-        "Solidworks",
-        "Fusion 360"
-      ]
-    },
-    {
-      "name": "Data Visualization Libraries",
-      "keywords": [
-        "Numpy",
-        "Pandas",
-        "Matplotlib",
-        "Seaborn"
-      ]
-    },
-    {
-      "name": "Manufacturing",
-      "keywords": [
-        "3D Printing",
-        "CNC Milling",
-        "Laser Cutting",
-        "Lathe Operation"
-      ]
-    },
-    {
-      "name": "Other Tools",
-      "keywords": [
-        "Git",
-        "Microsoft Office Suite"
-      ]
-    }
-  ],
   "interests": [],
   "portfolio": [
     {
