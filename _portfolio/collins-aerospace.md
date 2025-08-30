@@ -1,6 +1,6 @@
 ---
-title: "Liquid Cooled Power Electronics for Collins Aerospace"
-excerpt: "<img src='/images/immersion-cooling-project/flow-loop.png'>Senior Design Project Spring 2025"
+title: "Liquid Cooling Test Bench for Collins Aerospace"
+excerpt: "<img src='/images/immersion-cooling-project/flow-loop.png'><br>Designed and built a test bench for a power module and oil-based coolant to study the effects of immersion cooling, as part of a Senior Design Project. The project involved developing procedures, performing tests, and providing a series of recommendations in a technical report."
 collection: portfolio
 ---
 ![Flow Loop](/images/immersion-cooling-project/flow-loop.png)\

@@ -1,6 +1,6 @@
 ---
-title: "Product Development Project"
-excerpt: "End-to-end product development from concept to prototype<br /><img src='/images/500x300.png'>"
+title: "Watch Project"
+excerpt: "In progress"
 collection: portfolio
 ---
 
