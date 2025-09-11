@@ -1,6 +1,6 @@
 ---
 title: "Watch Project"
-excerpt: "In progress"
+excerpt: "<img src='/images/watch-project/Timex-Weekender.jpeg' width='200'><br>In progress! More updates coming soon. If you are a hiring manager please ask about this personal project I am excited to be working on.<br>Pictured: Timex Weekender, a watch I want to own next — does not resemble what I'm actually working on."
 collection: portfolio
 ---
 
