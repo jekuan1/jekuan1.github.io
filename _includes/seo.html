@@ -24,6 +24,10 @@
 {% if seo_description %}
   {% assign seo_description = seo_description | markdownify | strip_html | strip_newlines | escape_once %}
 {% endif %}
+<<<<<<< HEAD
+=======
+<meta name="description" content="{{ seo_description }}">
+>>>>>>> upstream/master
 
 {% assign seo_author = page.author | default: page.author[0] | default: site.author[0] %}
 {% if seo_author %}
