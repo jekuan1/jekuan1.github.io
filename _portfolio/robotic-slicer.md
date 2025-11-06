@@ -2,6 +2,7 @@
 title: "Robotic Vegetable Slicer for Impaired Users"
 excerpt: "<img src='/images/robotic-slicer/robotic-slicer-final.jpg' style='width:400px;'><br>I developed a robotic vegetable slicer to assist users with limited mobility in food preparation tasks"
 collection: portfolio
+date: 2025-10-21 00:00:00
 ---
 ![Robotic Slicer](/images/robotic-slicer/robotic-slicer-final.jpg)\
 Figure 1. The robotic vegetable slicer prototype, featuring a motorized blade and feeder mechanism
