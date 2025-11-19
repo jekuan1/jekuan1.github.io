@@ -3,6 +3,7 @@ title: 'Nuclear Energy - Dying Technology or Climate Savior?'
 date: 2022-11-18
 permalink: /posts/2022/11/nuclear-energy-1/
 excerpt: ""
+last_modified_at: 2025-11-19 00:00:00
 ---
 
 Climate change, specifically rapid climate change due to anthropogenic carbon emissions (referred to as climate change in this article) has become a hot topic for several years now. Many companies have recognized climate change as a threat to our ecosystems and are trying to reduce their own carbon emissions in the next decade. I recently attended a seminar in one of my classes, the Technology and Management Seminar offered by the University of Illinois Urbana-Champaign, where guest speakers discussed the importance of being attentive to climate change and what their company is doing to reduce carbon emissions.
