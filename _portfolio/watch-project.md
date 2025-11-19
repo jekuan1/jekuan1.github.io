@@ -4,6 +4,7 @@ excerpt: "<img src='/images/watch-project/Timex-Weekender.jpeg' width='200'><br>
 collection: portfolio
 date: 2025-09-17 00:00:00
 ---
+**Last Modified:** {{ page.last_modified_at | date: "%B %d, %Y" }}
 
 Welcome to my Watch Project page! This project is currently a work in progress, and I'm excited to share some initial details with you.
 
