@@ -3,6 +3,7 @@ title: "Liquid Cooling Test Bench for Collins Aerospace"
 excerpt: "<img src='/images/immersion-cooling-project/flow-loop.png'><br>Designed and built a test bench for a power module and oil-based coolant to study the effects of immersion cooling, as part of a Senior Design Project. The project involved developing procedures, performing tests, and providing a series of recommendations in a technical report."
 collection: portfolio
 date: 2025-09-17 00:00:00
+last_modified_at: 2025-11-06 00:00:00
 ---
 ![Flow Loop](/images/immersion-cooling-project/flow-loop.png)\
 Figure 1. Enclosure where power electronics and thermocouples are mounted in a container with coolant running through it
