@@ -1,10 +1,10 @@
 ---
 title: "CalHacks Hackathon - Robot Arm"
-excerpt: "<img src='/images/hackathon/robot-arm.png' style='width: 50%; max-width: 400px;'><br>I attended the worlds largest hackathon. Here's how it went"
+excerpt: "<img src='/images/hackathon/robot-arm.png' style='width:400px;'><br>I attended the worlds largest hackathon. Here's how it went"
 collection: portfolio
-date: 2025-11-06 00:00:00
-last_modified_at: 2025-11-06 00:00:00
+date: 2025-11-06
 ---
+<img src="/images/hackathon/robot-arm.png" width="400">
 
 On September 24, 2025, I attended CalHacks 12.0, the world's largest collegiate hackathon.
 
@@ -129,4 +129,4 @@ Just as ChatGPT defined the LLM space through scale, this system could define th
 ## Post Mortem
 So why is this all a hypothetical. Well, I went to the hackathon and worked on this idea with two of my friends. And it was going really well, too well in fact. For a project that I thought would require sleepless nights and constant debugging, we actually were able to get the robot arm controlled well— We had code for robot arm control via commands, the ability to scrape any twitch chat when given a link.
 
-Until we had to give video feed for the robot arm to understand its perception. This was probably one of the most complicated tasks it would have to do. Sure, controlling the robot before it was a required hurdle we had to learn. But controlling the robot arm was a completely different challenge.
+Until we had to give video feed for the robot arm to understand its perception. This was probably one of the most complicated tasks it would have to do. Sure, controlling the robot before it was a required hurdle we had to learn. But controlling the robot arm was a completely different challenge. 
