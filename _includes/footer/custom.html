@@ -2,12 +2,35 @@
 
 <!-- <a href="/sitemap/">Sitemap</a> -->
 
+{% if page.mathjax %}
 <!-- Support for MatJax -->
 <script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script"></script>
+{% endif %}
 
+{% if page.plotly %}
 <!-- Support for Plotly -->
 <script defer src='https://cdnjs.cloudflare.com/ajax/libs/plotly.js/3.0.1/plotly.min.js'></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const plotlyBlocks = document.querySelectorAll('code.language-plotly');
+  plotlyBlocks.forEach(function(block) {
+    try {
+      const data = JSON.parse(block.textContent);
+      const plotDiv = document.createElement('div');
+      plotDiv.style.width = '100%';
+      plotDiv.style.height = '400px';
+      const preBlock = block.parentElement;
+      preBlock.parentElement.insertBefore(plotDiv, preBlock);
+      preBlock.style.display = 'none';
+      Plotly.newPlot(plotDiv, data.data, data.layout || {}, {responsive: true});
+    } catch (e) {
+      console.error('Error rendering Plotly chart:', e);
+    }
+  });
+});
+</script>
+{% endif %}
 
 <!-- Support for Mermaid -->
 <script type="module">
