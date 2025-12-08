@@ -3,6 +3,7 @@ title: "CalHacks Hackathon - Robot Arm"
 excerpt: "<img src='/images/hackathon/robot-arm.png' style='width:400px;'><br>I attended the worlds largest hackathon. Here's how it went"
 collection: portfolio
 date: 2025-11-06
+last_modified_at: 2025-12-02 00:00:00
 ---
 <img src="/images/hackathon/robot-arm.png" width="400">
 
