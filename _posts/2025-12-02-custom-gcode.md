@@ -1,9 +1,9 @@
 ---
 title: 'Custom 3D Printer gcode for Plastic Sheet Adhesion'
 date: 2025-12-02 00:00:00
-excerpt: "<img src='/images/plastic-adhesion-workflow/title_image.png' style='width:400px;'><br>This blog instructs how one can create custom gcode to turn a 3D printer into a finely controlled heated pin for plastic sheet adhesion"
+excerpt: "<img src='/images/blogs/plastic-adhesion-workflow/title_image.png' style='width:400px;'><br>This blog instructs how one can create custom gcode to turn a 3D printer into a finely controlled heated pin for plastic sheet adhesion"
 ---
-<img src="/images/plastic-adhesion-workflow/title_image.png" width="400">
+<img src="/images/blogs/plastic-adhesion-workflow/title_image.png" width="400">
 
 This blog instructs how one can create custom gcode to turn a 3D printer into a finely controlled heated pin for plastic sheet adhesion, this SOP was designed for inflatable pouches for a class, but the adhesion process could have a wide variety of other applications including:
 - Adhesion bonding between dissimilar surfaces
@@ -99,17 +99,17 @@ Click **Save**
     * Import your .svg file
     * You should now see this:
     
-    ![Step C](/images/plastic-adhesion-workflow/step_c.png)
+    ![Step C](/images/blogs/plastic-adhesion-workflow/step_c.png)
 
     * You can try moving the part around in the Arrange step, but I have found that it just reverts to the center of the build plate when I get to the Preview step, if you are able to resolve this issue, please let me know
 
     * Click **Slice**
     
-    ![Step E](/images/plastic-adhesion-workflow/step_e.png)
+    ![Step E](/images/blogs/plastic-adhesion-workflow/step_e.png)
 
     * Click **Preview**
 
-    ![Step H](/images/plastic-adhesion-workflow/step_h.png)
+    ![Step H](/images/blogs/plastic-adhesion-workflow/step_h.png)
 
     * This is your tool path, if it looks at all incorrect, then you would have to debug a previous step. As you can see in my setup, there's some kind of artifact in the top left, which I’m not sure why it's there (I think that's the start/end of the path?). It's possible it won’t show up when actually doing the printing process.
 
