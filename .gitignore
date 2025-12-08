@@ -21,3 +21,5 @@ package-lock.json
 
 watch-project-progress.md
 todo.md
+
+*.draft
