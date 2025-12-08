@@ -2,6 +2,7 @@
 title: 'Custom 3D Printer gcode for Plastic Sheet Adhesion'
 date: 2025-12-02 00:00:00
 excerpt: "<img src='/images/blogs/plastic-adhesion-workflow/title_image.png' style='width:400px;'><br>This blog instructs how one can create custom gcode to turn a 3D printer into a finely controlled heated pin for plastic sheet adhesion"
+permalink: /posts/2025/12/custom-gcode/
 last_modified_at: 2025-12-08 00:00:00
 ---
 <img src="/images/blogs/plastic-adhesion-workflow/title_image.png" width="400">
