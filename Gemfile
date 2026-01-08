@@ -7,6 +7,7 @@ group :jekyll_plugins do
   gem 'jekyll-redirect-from'
   gem 'jemoji'
   gem 'jekyll-last-modified-at'
+  gem 'mini_magick'
   gem 'webrick', '~> 1.8'
 end
 
