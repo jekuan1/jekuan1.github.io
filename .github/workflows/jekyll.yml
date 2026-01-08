@@ -17,6 +17,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       
+      - name: Install ImageMagick
+        run: sudo apt-get update && sudo apt-get install -y imagemagick libmagickwand-dev
+      
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
@@ -27,6 +30,13 @@ jobs:
         run: bundle exec jekyll build
         env:
           JEKYLL_ENV: production
+      
+      - name: Verify WebP files created
+        run: |
+          echo "Checking for WebP files..."
+          find _site/images -name "*.webp" | wc -l
+          echo "Sample WebP files:"
+          find _site/images -name "*.webp" | head -5
       
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
