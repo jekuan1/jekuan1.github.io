@@ -1,10 +1,24 @@
 Jekyll::Hooks.register :site, :post_write do |site|
   require 'mini_magick'
   
-  image_dir = File.join(site.dest, 'images')
-  next unless Dir.exist?(image_dir)
+  puts "=" * 80
+  puts "IMAGE OPTIMIZER: Starting optimization..."
   
-  Dir.glob(File.join(image_dir, '**', '*.{jpg,jpeg,png}')).each do |img_path|
+  image_dir = File.join(site.dest, 'images')
+  
+  unless Dir.exist?(image_dir)
+    puts "WARNING: Image directory not found at #{image_dir}"
+    next
+  end
+  
+  puts "Found image directory: #{image_dir}"
+  
+  image_files = Dir.glob(File.join(image_dir, '**', '*.{jpg,jpeg,png}'))
+  puts "Found #{image_files.count} images to optimize"
+  
+  image_files.each do |img_path|
+    puts "Processing: #{File.basename(img_path)}"
+    
     image = MiniMagick::Image.open(img_path)
     image.strip
     image.quality "85"
@@ -16,5 +30,10 @@ Jekyll::Hooks.register :site, :post_write do |site|
     image.format 'webp'
     image.quality "85"
     image.write webp_path
+    
+    puts "  Created: #{File.basename(webp_path)}"
   end
+  
+  puts "IMAGE OPTIMIZER: Complete!"
+  puts "=" * 80
 end
