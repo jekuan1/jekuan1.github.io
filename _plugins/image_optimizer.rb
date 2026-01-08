@@ -8,7 +8,13 @@ Jekyll::Hooks.register :site, :post_write do |site|
     image = MiniMagick::Image.open(img_path)
     image.strip
     image.quality "85"
-    image.resize "1200>" # only resize if larger than 1200px
+    image.resize "1200>"
     image.write img_path
+    
+    # Also create WebP version
+    webp_path = img_path.sub(/\.(jpg|jpeg|png)$/i, '.webp')
+    image.format 'webp'
+    image.quality "85"
+    image.write webp_path
   end
 end
