@@ -2,7 +2,7 @@ name: Deploy Jekyll site to Pages
 
 on:
   push:
-    branches: ["master"]  # Changed from "main" to "master"
+    branches: ["master"]
   workflow_dispatch:
 
 permissions:
@@ -27,16 +27,9 @@ jobs:
           bundler-cache: true
       
       - name: Build with Jekyll
-        run: bundle exec jekyll build --verbose
+        run: bundle exec jekyll build
         env:
           JEKYLL_ENV: production
-      
-      - name: List generated files
-        run: |
-          echo "=== Checking for WebP files ==="
-          find _site/images -type f -name "*.webp" | wc -l
-          echo "Sample WebP files:"
-          find _site/images -type f -name "*.webp" | head -5
       
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
