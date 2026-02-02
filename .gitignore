@@ -24,3 +24,5 @@ todo.md
 
 *.draft
 *.draft.md
+
+.DS_Store
