@@ -3,7 +3,7 @@ title: "Self-Balancing Platform using Model Predictive Control"
 excerpt: "<img src='/images/projects/ball-balancer/platform.jpg' style='width:400px;'><br>Designed and built a self-balancing ball platform and implemented Model Predictive Control in embedded C to autonomously balance a steel ball on a tilting surface"
 collection: portfolio
 date: 2026-01-27 00:00:00
-last_modified_at: 2026-01-21 00:00:00
+last_modified_at: 2026-01-27 00:00:00
 mathjax: true
 ---
 
@@ -59,15 +59,15 @@ The mechanical system was designed to provide precise, repeatable motion while m
 
 **3D Printed Components:**
 - Motor mounts to securely hold servo motors at the correct angles
-- Plate bracket to connect the capacitive touch panel to the ball joint
+- Plate bracket to connect the capacitive touch panel to the universal joint
 - Pillow block bearings for smooth rotational motion
 - Plate clamps to secure the touch panel without damaging it
-- Custom standoff for the central ball joint connection
+- Custom standoff for the central universal joint connection
 
 **Purchased Components:**
 - Two high-torque digital servo motors for platform actuation
 - Adafruit ESP32 S2 Feather microcontroller for control implementation
-- 1" steel bearing ball (approximately 27g mass)
+- 1" steel bearing ball (approximately 67g mass)
 - 8.4" four-wire resistive capacitive touch panel for position sensing
 - Ball joint rod ends to connect servos to the platform
 - Hex standoffs and fasteners for assembly
@@ -134,13 +134,11 @@ where:
 
 The cost function balances multiple objectives:
 
-1. **State tracking:** The \\(Q\\) matrix penalizes deviations from the desired ball position and velocity. I tuned this matrix experimentally to heavily penalize position error while moderately penalizing velocity, allowing the ball to move quickly when far from the target but settle smoothly near it.
+1. **Output tracking:** The \\(\Psi\\) matrix penalizes deviations from the desired ball position. I used a simple scalar weight (\\(\psi_y = 1.0\\)) applied to both x and y position errors. Note that only position is penalized in the cost function—velocity estimates from the Kalman filter are used for state feedback but not directly penalized in the MPC objective.
 
-2. **Control effort:** The \\(R\\) matrix (actually \\(\Lambda\\) for input increments \\(\Delta u\\) in my implementation) penalizes large servo angle changes, preventing aggressive tilting that could cause the ball to roll off the platform or create chattering.
+2. **Control effort:** The \\(\Lambda\\) matrix penalizes input increments \\(\Delta u\\) (changes in servo angles) rather than absolute angles. This prevents aggressive tilting that could cause the ball to roll off the platform or create chattering. I used axis-specific penalties (\\(\lambda_{\phi} = 0.5\\), \\(\lambda_{\theta} = 0.5\\)) to allow independent tuning of each servo's aggressiveness.
 
-3. **Terminal cost:** The \\(Q_f\\) matrix ensures the predicted trajectory ends near the setpoint, improving long-term stability.
-
-I tuned these cost parameters experimentally through direct hardware testing rather than simulation. The tuning process involved adjusting penalties on position tracking (\\(\psi_y = 1.0\\)) and input increments (\\(\lambda_{\phi}\\) and \\(\lambda_{\theta}\\)) until the system exhibited smooth, stable tracking without oscillation.
+I tuned these cost parameters experimentally through direct hardware testing rather than simulation. The tuning process involved adjusting the output tracking weight (\\(\psi_y\\)) and input increment penalties (\\(\lambda_{\phi}\\), \\(\lambda_{\theta}\\)) until the system exhibited smooth, stable tracking without oscillation. The relatively long prediction horizon (\\(N = 40\\)) with shorter control horizon (\\(N_u = 5\\)) provided sufficient look-ahead for smooth trajectory planning without requiring an explicit terminal cost.
 
 ## Software Implementation
 
@@ -150,26 +148,30 @@ Implementing MPC on a resource-constrained microcontroller required careful opti
 
 I used Python with NumPy to:
 1. Define the system matrices \\(A\\) and \\(B\\)
-2. Discretize the continuous-time model using zero-order hold with \\(\Delta t = 0.05\\) seconds
-3. Formulate the MPC problem as a Quadratic Program (QP)
-4. Solve for the optimal gain matrix \\(K\\) using direct matrix inversion (\\(K = H^{-1}\Phi^T\Psi\\))
-5. Generate a C header file containing the pre-computed gain matrix as a constant array
+2. Discretize the continuous-time model using Forward Euler with \(\Delta t = 0.05\) seconds
+3. Build the prediction matrix \(\Phi\) that maps input increment sequences to future output trajectories
+4. Formulate the cost function matrices \(\Psi_{big}\) (output tracking) and \(\Lambda_{big}\) (input increment penalties)
+5. Solve for the optimal gain matrix \(K\) by computing \(K = (\Phi^T\Psi\Phi + \Lambda)^{-1}\Phi^T\Psi\) and extracting the first-move gain
+6. Generate a C header file containing the pre-computed gain matrix as a constant array
 
-For a linear system like this one, the MPC solution can be pre-computed as a state-feedback gain matrix. This converts the optimization problem into a simple matrix multiplication that the microcontroller can execute quickly.
+For a linear system like this one, the MPC solution can be pre-computed as an output-feedback gain matrix operating on predicted tracking errors. This converts the optimization problem into a simple matrix multiplication that the microcontroller can execute quickly.
 
-The control law becomes:
-$$u_k = -K(x_k - x_{ref})$$
+The control law uses incremental inputs:
+$$\Delta u_k = K \cdot E$$
+$$u_k = u_{k-1} + \Delta u_k$$
 
-where \\(x_{ref}\\) is the desired state (target position with zero velocity).
+where \(E\) is the stacked vector of output tracking errors (predicted position errors over the horizon \(H\)), and \(K\) is a \((2 \times 80)\) gain matrix that maps from 40 future output errors (2 outputs × 40 time steps) to the 2 input increments.
 
 ### Online Computation (ESP32 in C)
 
 The embedded C code running on the ESP32 performs the following tasks in each control loop:
 
 1. **Sensor Reading:** Query the capacitive touch panel to get the ball's x and y positions
-2. **State Estimation:** Apply a Kalman filter to estimate velocities from noisy position measurements
-3. **Control Calculation:** Multiply the estimated state error by the pre-computed gain matrix
-4. **Servo Actuation:** Send PWM signals to position the servos at the calculated angles
+2. **State Estimation:** Apply a Kalman filter to estimate the full state (including velocities) from noisy position measurements
+3. **Free Response Prediction:** Compute the predicted output trajectory \(Y_{free}\) assuming the servo angles remain constant
+4. **Control Calculation:** Compute output tracking errors \(E = R - Y_{free}\) and multiply by the pre-computed gain matrix to get \(\Delta u_k\)
+5. **Input Integration:** Update servo angles as \(u_k = u_{k-1} + \Delta u_k\)
+6. **Servo Actuation:** Send PWM signals to position the servos at the calculated angles
 
 ### Kalman Filter for State Estimation
 
@@ -229,17 +231,17 @@ The MPC approach showed clear advantages over a naive PID implementation:
 
 This project reinforced several important lessons about control systems and embedded implementation:
 
-**1. Model accuracy matters more than control sophistication.**
+**1. Translating classroom theory to hardware reveals practical constraints**
 
-The simplified dynamics model worked well because the key assumptions (small angles, negligible friction) held true in practice. Spending time on accurate system identification paid dividends later.
+In class, we studied advanced MPC techniques including nonlinear formulations, adaptive gain scheduling, and robust control methods. However, implementing MPC on real hardware quickly revealed the gap between theory and practice. My simplified linearized model worked well because the key assumptions (small angles, negligible friction) held true in the operating range I designed for. The experience taught me that a reasonable model paired with proper system design (constraining DOF, operating within linear regions) can make sophisticated control algorithms practically viable. Understanding which theoretical tools to deploy versus which to defer was a crucial skill developed through this project.
 
-**2. Pre-computation is essential for real-time MPC.**
+**2. Pre-computation is essential for real-time MPC**
 
 Computing the full QP solution online would have been impossible. The offline gain matrix approach made MPC practical on a microcontroller.
 
-**3. Sensor fusion significantly improves performance.**
+**3. Real world systems have noisy data that require filtering**
 
-The Kalman filter transformed noisy, discontinuous position measurements into smooth, reliable state estimates. This was crucial for stable control.
+The Kalman filter transformed noisy, discontinuous position measurements into smooth, reliable state estimates. This was crucial for stable control. In class we assumed the data regarding position, velocity, etc of a system is accurate however in many real-world systems sensor fusion, redundancy, and stochastic filtering should be applied.
 
 **4. Tuning is an iterative process.**
 
