@@ -3,7 +3,7 @@ title: "Self-Balancing Platform using Model Predictive Control"
 excerpt: "<img src='/images/projects/ball-balancer/platform.jpg' style='width:400px;'><br>Designed and built a self-balancing ball platform and implemented Model Predictive Control in embedded C to autonomously balance a steel ball on a tilting surface"
 collection: portfolio
 date: 2026-01-27 00:00:00
-last_modified_at: 2026-01-27 00:00:00
+last_modified_at: 2026-02-02 00:00:00
 mathjax: true
 ---
 
