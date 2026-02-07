@@ -3,7 +3,7 @@ title: "Self-Balancing Platform using Model Predictive Control"
 excerpt: "<img src='/images/projects/ball-balancer/platform.jpg' style='width:400px;'><br>Designed and built a self-balancing ball platform and implemented Model Predictive Control in embedded C to autonomously balance a steel ball on a tilting surface"
 collection: portfolio
 date: 2026-01-27 00:00:00
-last_modified_at: 2026-02-02 00:00:00
+last_modified_at: 2026-02-07 00:00:00
 mathjax: true
 ---
 
@@ -51,7 +51,7 @@ The project challenged me to integrate mechanical design, embedded programming, 
 ![CAD Assembly](/images/projects/ball-balancer/cad-assembly.png)\
 Figure 2. CAD assembly showing the mechanical design and component layout
 
-The mechanical system was designed to provide precise, repeatable motion while maintaining structural rigidity. The overall construction consists of several key subsystems:
+The mechanical system was designed to provide responsive, precise actuation with minimal backlash. The overall construction consists of several key subsystems:
 
 **Base Platform:**
 - 1/2" thick wood base for structural support
@@ -148,10 +148,10 @@ Implementing MPC on a resource-constrained microcontroller required careful opti
 
 I used Python with NumPy to:
 1. Define the system matrices \\(A\\) and \\(B\\)
-2. Discretize the continuous-time model using Forward Euler with \(\Delta t = 0.05\) seconds
-3. Build the prediction matrix \(\Phi\) that maps input increment sequences to future output trajectories
-4. Formulate the cost function matrices \(\Psi_{big}\) (output tracking) and \(\Lambda_{big}\) (input increment penalties)
-5. Solve for the optimal gain matrix \(K\) by computing \(K = (\Phi^T\Psi\Phi + \Lambda)^{-1}\Phi^T\Psi\) and extracting the first-move gain
+2. Discretize the continuous-time model using Forward Euler with \\(\Delta t = 0.05\\) seconds
+3. Build the prediction matrix \\(\Phi\\) that maps input increment sequences to future output trajectories
+4. Formulate the cost function matrices \\(\Psi_{big}\\) (output tracking) and \\(\Lambda_{big}\\) (input increment penalties)
+5. Solve for the optimal gain matrix \\(K\\) by computing \\(K = (\Phi^T\Psi\Phi + \Lambda)^{-1}\Phi^T\Psi\\) and extracting the first-move gain
 6. Generate a C header file containing the pre-computed gain matrix as a constant array
 
 For a linear system like this one, the MPC solution can be pre-computed as an output-feedback gain matrix operating on predicted tracking errors. This converts the optimization problem into a simple matrix multiplication that the microcontroller can execute quickly.
@@ -160,7 +160,7 @@ The control law uses incremental inputs:
 $$\Delta u_k = K \cdot E$$
 $$u_k = u_{k-1} + \Delta u_k$$
 
-where \(E\) is the stacked vector of output tracking errors (predicted position errors over the horizon \(H\)), and \(K\) is a \((2 \times 80)\) gain matrix that maps from 40 future output errors (2 outputs × 40 time steps) to the 2 input increments.
+where \\(E\\) is the stacked vector of output tracking errors (predicted position errors over the horizon \\(H\\)), and \\(K\\) is a \\((2 \times 80)\\) gain matrix that maps from 40 future output errors (2 outputs × 40 time steps) to the 2 input increments.
 
 ### Online Computation (ESP32 in C)
 
@@ -168,9 +168,9 @@ The embedded C code running on the ESP32 performs the following tasks in each co
 
 1. **Sensor Reading:** Query the capacitive touch panel to get the ball's x and y positions
 2. **State Estimation:** Apply a Kalman filter to estimate the full state (including velocities) from noisy position measurements
-3. **Free Response Prediction:** Compute the predicted output trajectory \(Y_{free}\) assuming the servo angles remain constant
-4. **Control Calculation:** Compute output tracking errors \(E = R - Y_{free}\) and multiply by the pre-computed gain matrix to get \(\Delta u_k\)
-5. **Input Integration:** Update servo angles as \(u_k = u_{k-1} + \Delta u_k\)
+3. **Free Response Prediction:** Compute the predicted output trajectory \\(Y_{free}\\) assuming the servo angles remain constant
+4. **Control Calculation:** Compute output tracking errors \\(E = R - Y_{free}\\) and multiply by the pre-computed gain matrix to get \\(\Delta u_k\\)
+5. **Input Integration:** Update servo angles as \\(u_k = u_{k-1} + \Delta u_k\\)
 6. **Servo Actuation:** Send PWM signals to position the servos at the calculated angles
 
 ### Kalman Filter for State Estimation
