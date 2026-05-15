@@ -1,6 +1,6 @@
 ---
 title: "CalHacks Hackathon - Robot Arm"
-excerpt: "<img src='/images/hackathon/robot-arm.png' style='width:400px;'><br>I attended the worlds largest hackathon. Here's how it went"
+excerpt: "<img src='/images/hackathon/robot-arm.png' style='width:400px;'><br>On September 24, 2025, I attended CalHacks 12.0, the world's largest collegiate hackathon."
 collection: portfolio
 date: 2025-11-06
 last_modified_at: 2025-12-02 00:00:00
